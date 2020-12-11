@@ -3,7 +3,7 @@ package ar.com.plug.examen.domain.entities;
 import lombok.Data;
 
 @Data
-public class Seller {
+public class SellerEntity {
     private long id;
     private String name;
     private String lastname;

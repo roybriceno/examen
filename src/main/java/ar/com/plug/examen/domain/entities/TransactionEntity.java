@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-public class Transaction {
+public class TransactionEntity {
     private long id;
     private long clientFK;
     private long sellerFK;

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class Cart {
+public class CartEntity {
     private long id;
     private long productFK;
     private BigDecimal unitAmount;
