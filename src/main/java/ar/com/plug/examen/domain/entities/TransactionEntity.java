@@ -1,5 +1,6 @@
 package ar.com.plug.examen.domain.entities;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 @Entity
 @Table(name = "T_TRANSACTION")
 public class TransactionEntity {
