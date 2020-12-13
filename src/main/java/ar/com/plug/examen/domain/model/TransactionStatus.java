@@ -1,20 +1,22 @@
 package ar.com.plug.examen.domain.model;
 
+import java.util.Set;
+
+import ar.com.plug.examen.domain.entities.TransactionEntity;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-
-import java.math.BigDecimal;
-import java.util.Set;
 
 @Getter
 @Builder
 @ToString
 @EqualsAndHashCode
 
-public class Cart {
+public class TransactionStatus {
     private long id;
-    private Set<Transaction> transactions;
-    private BigDecimal amount;
+    private Set<TransactionEntity> transactions;
+    private String status;
 }
+
+

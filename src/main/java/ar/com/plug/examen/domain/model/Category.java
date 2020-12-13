@@ -5,16 +5,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
-import java.util.Set;
-
 @Getter
 @Builder
 @ToString
 @EqualsAndHashCode
 
-public class Cart {
-    private long id;
-    private Set<Transaction> transactions;
-    private BigDecimal amount;
+public class Category {
+	private long id;
+    private String name;
 }
+
+
