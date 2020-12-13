@@ -1,11 +1,13 @@
 package ar.com.plug.examen.domain.entities;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
+@Builder
 @Entity
 @Table(name = "T_TRANSACTION_STATUS")
 public class TransactionStatusEntity {

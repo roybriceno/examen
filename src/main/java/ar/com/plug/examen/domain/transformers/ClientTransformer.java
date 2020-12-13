@@ -7,16 +7,16 @@ import ar.com.plug.examen.domain.model.Category;
 import ar.com.plug.examen.domain.model.Transaction;
 import ar.com.plug.examen.domain.entities.CategoryEntity;
 import ar.com.plug.examen.domain.entities.TransactionEntity;
-public final class EntityTransformer {
+public final class ClientTransformer {
 
-    private EntityTransformer() {
+    private ClientTransformer() {
         throw new UnsupportedOperationException("EntityTransformer can't be accessed or instantiate.");
     }
 
-    public static CategoryEntity toCategoryEntity(Category category) {
-        return Category.builder()
-                .id(category.getId())
-                .transactions(asSetTransactionEntites(category.getTransactions()))
+    public static ClientEntity toClientEntity(ClientTransformer client) {
+        return ClientTransformer.builder()
+                .id(client.getId())
+                .transactions(asSetTransactionEntites(client.getTransactions()))
                 .build();
     }
 
