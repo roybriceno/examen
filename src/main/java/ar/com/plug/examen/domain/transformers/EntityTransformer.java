@@ -15,8 +15,9 @@ public final class EntityTransformer {
     }
 
     public static CategoryEntity toCategoryEntity(Category category) {
-        return Category.builder()
+        return CategoryEntity.builder()
                 .id(category.getId())
+                .name(category.getName())
                 .transactions(toTransactionEntites(category.getTransactions()))
                 .build();
     }
@@ -28,5 +29,4 @@ public final class EntityTransformer {
                         .build())
                 .collect(Collectors.toSet());
     }
-
 }
