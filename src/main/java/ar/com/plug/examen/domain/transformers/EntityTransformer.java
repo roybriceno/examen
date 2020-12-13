@@ -7,6 +7,7 @@ import ar.com.plug.examen.domain.model.Category;
 import ar.com.plug.examen.domain.model.Transaction;
 import ar.com.plug.examen.domain.entities.CategoryEntity;
 import ar.com.plug.examen.domain.entities.TransactionEntity;
+
 public final class EntityTransformer {
 
     private EntityTransformer() {
@@ -16,11 +17,11 @@ public final class EntityTransformer {
     public static CategoryEntity toCategoryEntity(Category category) {
         return Category.builder()
                 .id(category.getId())
-                .transactions(asSetTransactionEntites(category.getTransactions()))
+                .transactions(toTransactionEntites(category.getTransactions()))
                 .build();
     }
 
-    public static Set<TransactionEntity> asSetTransactionEntites(Set<Transaction> transactions) {
+    public static Set<TransactionEntity> toTransactionEntites(Set<Transaction> transactions) {
         return transactions.stream()
                 .map(t -> TransactionEntity.builder()
                         .id(t.getId())
