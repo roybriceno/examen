@@ -12,7 +12,6 @@ import lombok.ToString;
 @Builder
 @ToString
 @EqualsAndHashCode
-
 public class TransactionStatus {
     private long id;
     private Set<TransactionEntity> transactions;

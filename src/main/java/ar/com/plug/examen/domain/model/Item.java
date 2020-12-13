@@ -15,7 +15,6 @@ import ar.com.plug.examen.domain.entities.TransactionEntity;
 @Builder
 @ToString
 @EqualsAndHashCode
-
 public class Item {
     private long id;
     private Set<TransactionEntity> transactions;

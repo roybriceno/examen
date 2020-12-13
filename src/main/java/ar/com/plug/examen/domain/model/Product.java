@@ -13,7 +13,6 @@ import java.util.Set;
 @Builder
 @ToString
 @EqualsAndHashCode
-
 public class Product {
 	private long id;
 	private long sellerFK;

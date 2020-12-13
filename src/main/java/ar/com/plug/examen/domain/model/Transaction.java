@@ -19,7 +19,6 @@ import lombok.ToString;
 @Builder
 @ToString
 @EqualsAndHashCode
-
 public class Transaction {
     private long id;
     private ClientEntity clientFK;

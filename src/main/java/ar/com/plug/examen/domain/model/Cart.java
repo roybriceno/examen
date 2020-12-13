@@ -12,7 +12,6 @@ import java.util.Set;
 @Builder
 @ToString
 @EqualsAndHashCode
-
 public class Cart {
     private long id;
     private Set<Transaction> transactions;

@@ -9,7 +9,6 @@ import lombok.ToString;
 @Builder
 @ToString
 @EqualsAndHashCode
-
 public class Category {
 	private long id;
     private String name;
