@@ -18,11 +18,11 @@ public final class EntityTransformer {
         return CategoryEntity.builder()
                 .id(category.getId())
                 .name(category.getName())
-                .transactions(toTransactionEntites(category.getTransactions()))
+                .transactions(toTransactionEntities(category.getTransactions()))
                 .build();
     }
 
-    public static Set<TransactionEntity> toTransactionEntites(Set<Transaction> transactions) {
+    public static Set<TransactionEntity> toTransactionEntities(Set<Transaction> transactions) {
         return transactions.stream()
                 .map(t -> TransactionEntity.builder()
                         .id(t.getId())
