@@ -52,6 +52,6 @@ public final class ModelTransformer {
     }
 
     public static ClientEntity toClientEntity(Client client) {
-
+        return null;
     }
 }
