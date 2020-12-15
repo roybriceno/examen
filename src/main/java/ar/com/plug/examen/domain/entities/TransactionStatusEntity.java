@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Builder
 @Entity
 @Table(name = "T_TRANSACTION_STATUS")
 public class TransactionStatusEntity {

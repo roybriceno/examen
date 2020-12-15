@@ -8,6 +8,9 @@ import ar.com.plug.examen.domain.model.Transaction;
 import ar.com.plug.examen.domain.entities.CategoryEntity;
 import ar.com.plug.examen.domain.entities.TransactionEntity;
 
+/*
+    Transform Entities to models.
+ */
 public final class EntityTransformer {
 
     private EntityTransformer() {

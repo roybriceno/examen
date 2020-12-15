@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ar.com.plug.examen.domain.entities.ClientEntity;
-import ar.com.plug.examen.domain.service.IClientService;
+import ar.com.plug.examen.domain.service.ClientService;
 
 @RestController
 @RequestMapping("/api")
 public class ClientController {
 
 	@Autowired
-	private IClientService clientService;
+	private ClientService clientService;
 	
 	@GetMapping("/clients")
 	public List<ClientEntity> index(){

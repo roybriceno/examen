@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Data
-@Builder
 @Entity
 @Table(name = "T_PRODUCT")
 public class ProductEntity {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.com.plug.examen.domain.entities.TransactionEntity;
 
-public interface ITransactionService {
+public interface TransactionService {
 
 	public List<TransactionEntity> findAll();
 	

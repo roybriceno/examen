@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.com.plug.examen.domain.entities.CategoryEntity;
 
-public interface ICategoryService {
+public interface CategoryService {
 
 	public List<CategoryEntity> findAll();
 	

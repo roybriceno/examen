@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.plug.examen.domain.dao.ICategoryDao;
 import ar.com.plug.examen.domain.entities.CategoryEntity;
-import ar.com.plug.examen.domain.service.ICategoryService;
+import ar.com.plug.examen.domain.service.CategoryService;
 
 @Service
-public class CategoryImpl implements ICategoryService {
+public class CategoryImpl implements CategoryService {
 
 	@Autowired
 	private ICategoryDao categoryDao;

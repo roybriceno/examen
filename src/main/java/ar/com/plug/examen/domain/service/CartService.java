@@ -5,7 +5,7 @@ import java.util.List;
 import ar.com.plug.examen.domain.entities.CartEntity;
 
 
-public interface ICartService {
+public interface CartService {
 
 	public List<CartEntity> findAll();
 	

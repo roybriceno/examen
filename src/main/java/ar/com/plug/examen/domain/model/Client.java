@@ -17,7 +17,7 @@ import ar.com.plug.examen.domain.entities.TransactionEntity;
 @EqualsAndHashCode
 public class Client {
     private long id;
-    private Set<TransactionEntity> transactions;
+    private Set<Transaction> transactions;
     private String name;
     private String lastname;
     private String dni;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.com.plug.examen.domain.entities.ClientEntity;
 
-public interface IClientService {
+public interface ClientService {
 
 	public List<ClientEntity> findAll();
 	

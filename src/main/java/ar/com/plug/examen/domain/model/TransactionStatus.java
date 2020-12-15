@@ -14,7 +14,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class TransactionStatus {
     private long id;
-    private Set<TransactionEntity> transactions;
+    private Set<Transaction> transactions;
     private String status;
 }
 

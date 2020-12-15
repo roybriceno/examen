@@ -21,10 +21,10 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Transaction {
     private long id;
-    private ClientEntity clientFK;
-    private SellerEntity sellerFK;
-    private CartEntity cartFK;
-    private TransactionStatusEntity transactionStatusFK;
+    private Client client;
+    private Seller seller;
+    private Cart cart;
+    private TransactionStatus transactionStatus;
     private BigDecimal amount;
     private LocalDateTime startDate;
     private LocalDateTime endDate;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.com.plug.examen.domain.entities.ProductEntity;
 
-public interface IProductService {
+public interface ProductService {
 
 	public List<ProductEntity> findAll();
 	

@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
 @Entity
 @Table(name = "T_TRANSACTION")
 public class TransactionEntity {

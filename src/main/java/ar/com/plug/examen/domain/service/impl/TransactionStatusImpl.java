@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.plug.examen.domain.dao.ITransactionStatusDao;
 import ar.com.plug.examen.domain.entities.TransactionStatusEntity;
-import ar.com.plug.examen.domain.service.ITransactionStatusService;
+import ar.com.plug.examen.domain.service.TransactionStatusService;
 
 @Service
-public class TransactionStatusImpl implements ITransactionStatusService {
+public class TransactionStatusImpl implements TransactionStatusService {
 
 	@Autowired
 	private ITransactionStatusDao transactionStatusDao;

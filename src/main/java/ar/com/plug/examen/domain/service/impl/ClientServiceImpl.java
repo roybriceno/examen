@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.plug.examen.domain.dao.IClientDao;
 import ar.com.plug.examen.domain.entities.ClientEntity;
-import ar.com.plug.examen.domain.service.IClientService;
+import ar.com.plug.examen.domain.service.ClientService;
 
 @Service
-public class ClientServiceImpl implements IClientService {
+public class ClientServiceImpl implements ClientService {
 
 	@Autowired
 	private IClientDao clientDao;

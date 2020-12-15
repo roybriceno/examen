@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.plug.examen.domain.dao.ICartDao;
 import ar.com.plug.examen.domain.entities.CartEntity;
-import ar.com.plug.examen.domain.service.ICartService;
+import ar.com.plug.examen.domain.service.CartService;
 
 @Service
-public class CartImpl implements ICartService {
+public class CartImpl implements CartService {
 
 	@Autowired
 	private ICartDao cartDao;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import ar.com.plug.examen.domain.entities.SellerEntity;
 
-public interface ISellerService {
+public interface SellerService {
 
 	public List<SellerEntity> findAll();
 	

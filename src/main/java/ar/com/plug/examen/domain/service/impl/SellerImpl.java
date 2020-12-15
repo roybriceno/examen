@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.plug.examen.domain.dao.ISellerDao;
 import ar.com.plug.examen.domain.entities.SellerEntity;
-import ar.com.plug.examen.domain.service.ISellerService;
+import ar.com.plug.examen.domain.service.SellerService;
 
 @Service
-public class SellerImpl implements ISellerService {
+public class SellerImpl implements SellerService {
 
 	@Autowired
 	private ISellerDao sellerDao;

@@ -1,5 +1,6 @@
 package ar.com.plug.examen.domain.entities;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;

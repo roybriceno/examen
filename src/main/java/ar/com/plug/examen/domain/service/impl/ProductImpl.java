@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.plug.examen.domain.dao.IProductDao;
 import ar.com.plug.examen.domain.entities.ProductEntity;
-import ar.com.plug.examen.domain.service.IProductService;
+import ar.com.plug.examen.domain.service.ProductService;
 
 @Service
-public class ProductImpl implements IProductService {
+public class ProductImpl implements ProductService {
 
 	@Autowired
 	private IProductDao productDao;

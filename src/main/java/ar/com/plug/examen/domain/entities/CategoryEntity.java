@@ -8,7 +8,6 @@ import lombok.Data;
 import java.util.Set;
 
 @Data
-@Builder
 @Entity
 @Table(name = "T_CATEGORY")
 public class CategoryEntity {
