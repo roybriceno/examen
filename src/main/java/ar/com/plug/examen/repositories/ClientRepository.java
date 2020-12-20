@@ -1,10 +1,9 @@
 package ar.com.plug.examen.repositories;
 
+import ar.com.plug.examen.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ar.com.plug.examen.entities.Client;
+public interface ClientRepository extends JpaRepository<Client, Long> {
 
-public interface ClientRepository extends JpaRepository<Client, Long>  {
-
-	public Client findByName(String name);
+    public Client findByName(String name);
 }

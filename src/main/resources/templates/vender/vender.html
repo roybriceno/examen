@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"
+<html lang="es" layout:decorate="master"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="master">
+      xmlns:th="http://www.thymeleaf.org">
 <body>
 <main layout:fragment="contenido">
     <div class="col-12">
         <h2>Vender</h2>
-        <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
-             th:text="${mensaje}"
-             class="alert">
+        <div class="alert" th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+             th:if="${mensaje != null}"
+             th:text="${mensaje}">
         </div>
-        <form th:object="${producto}" th:action="@{/vender/agregar}" method="post">
+        <form method="post" th:action="@{/vender/agregar}" th:object="${producto}">
             <div class="form-group">
-                <label for="codigo">Código de barras</label>
-                <input autofocus autocomplete="off" th:field="*{codigo}" id="codigo"
+                <label for="codigo">Cï¿½digo de barras</label>
+                <input autocomplete="off" autofocus class="form-control" id="codigo"
                        placeholder="Escanea el cÃ³digo o escrÃ­belo y presiona Enter"
-                       type="text"
-                       class="form-control" th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''">
+                       th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"
+                       th:field="*{codigo}" type="text">
                 <div class="invalid-feedback" th:errors="*{codigo}"></div>
 
             </div>
         </form>
-        <form class="mb-2" th:action="@{/vender/terminar}" method="post">
-            <button type="submit" class="btn btn-success">Terminar&nbsp;<i class="fa fa-check"></i>
+        <form class="mb-2" method="post" th:action="@{/vender/terminar}">
+            <button class="btn btn-success" type="submit">Terminar&nbsp;<i class="fa fa-check"></i>
             </button>
-            <a th:href="@{/vender/limpiar}" class="btn btn-danger">Cancelar venta&nbsp;<i
+            <a class="btn btn-danger" th:href="@{/vender/limpiar}">Cancelar venta&nbsp;<i
                     class="fa fa-trash"></i>
             </a>
         </form>
@@ -34,7 +34,7 @@
                 <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Código</th>
+                    <th>Cï¿½digo</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Total</th>
@@ -49,8 +49,8 @@
                     <td th:text="${producto.cantidad}"></td>
                     <td th:text="${producto.total}"></td>
                     <td>
-                        <form th:action="@{/vender/quitar/} + ${iterador.index}" method="post">
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>
+                        <form method="post" th:action="@{/vender/quitar/} + ${iterador.index}">
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i>
                             </button>
                         </form>
                     </td>

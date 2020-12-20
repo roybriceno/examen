@@ -1,13 +1,12 @@
 package ar.com.plug.examen.repositories;
 
-import javax.transaction.Transactional;
-
+import ar.com.plug.examen.entities.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import ar.com.plug.examen.entities.Transaction;
+import javax.transaction.Transactional;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 

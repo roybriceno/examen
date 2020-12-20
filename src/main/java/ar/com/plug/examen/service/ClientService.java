@@ -2,7 +2,6 @@ package ar.com.plug.examen.service;
 
 import ar.com.plug.examen.entities.Client;
 import ar.com.plug.examen.repositories.ClientRepository;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,33 +23,33 @@ public class ClientService {
 
     public int addingClient(Client client) {
         try {
-        	clientRepository.save(client);
+            clientRepository.save(client);
             logger.info("insertClient processed correctly");
             return 1;
         } catch (Exception e) {
-            logger.error("Error "+e.getMessage());
+            logger.error("Error " + e.getMessage());
             return 0;
         }
     }
 
     public int updatingClient(Client client) {
         try {
-        	clientRepository.save(client);
+            clientRepository.save(client);
             logger.info("updateClient processed correctly");
             return 1;
         } catch (Exception e) {
-            logger.error("Error "+e.getMessage());
+            logger.error("Error " + e.getMessage());
             return 0;
         }
     }
 
-    public int deleteClient (Long id){
+    public int deleteClient(Long id) {
         try {
-        	clientRepository.deleteById(id);
+            clientRepository.deleteById(id);
             logger.info("deleteClient processed correctly");
             return 1;
         } catch (Exception e) {
-            logger.error("Error "+e.getMessage());
+            logger.error("Error " + e.getMessage());
             return 0;
         }
     }

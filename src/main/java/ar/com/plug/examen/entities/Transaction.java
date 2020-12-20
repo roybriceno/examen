@@ -1,7 +1,6 @@
 package ar.com.plug.examen.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Data;
 import lombok.ToString;
 
@@ -15,24 +14,24 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    private Long id;
     @Column(columnDefinition = "varchar(255)")
-    private  String state_order;
+    private String state_order;
     @Column(columnDefinition = "varchar(255)")
-    private  String dateOrder;
+    private String dateOrder;
     @Column(columnDefinition = "long")
-    private  Long idClient;
+    private Long idClient;
     @Column(columnDefinition = "long")
-    private  Long idSeller;
+    private Long idSeller;
     @OneToMany(targetEntity = TransactionProducts.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "cp_fk", referencedColumnName = "id")
     private List<TransactionProducts> transactionsProducts;
 
     public Transaction(@JsonProperty("state_order") State state_order,
-                        @JsonProperty("dateOrder") String dateOrder,
-                        @JsonProperty("idClient") Long idClient,
-                        @JsonProperty("idSeller") Long idSeller,
-                        @JsonProperty("transactionProducts") List<TransactionProducts> transactionProducts) {
+                       @JsonProperty("dateOrder") String dateOrder,
+                       @JsonProperty("idClient") Long idClient,
+                       @JsonProperty("idSeller") Long idSeller,
+                       @JsonProperty("transactionProducts") List<TransactionProducts> transactionProducts) {
         this.state_order = state_order.toString();
         this.dateOrder = dateOrder;
         this.idClient = idClient;
@@ -44,7 +43,7 @@ public class Transaction {
 
     }
 
-    public enum State{
+    public enum State {
         INPROCESS,
         APPROVED,
         REJECTED

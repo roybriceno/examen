@@ -1,15 +1,14 @@
 package ar.com.plug.examen.service;
 
-import java.util.List;
-
+import ar.com.plug.examen.entities.Transaction;
+import ar.com.plug.examen.repositories.ProductRepository;
+import ar.com.plug.examen.repositories.TransactionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.com.plug.examen.entities.Transaction;
-import ar.com.plug.examen.repositories.ProductRepository;
-import ar.com.plug.examen.repositories.TransactionRepository;
+import java.util.List;
 
 @Service
 public class TransactionService {
@@ -26,31 +25,31 @@ public class TransactionService {
 
     public int addingTransaction(Transaction transaction) {
         try {
-        	transactionRepository.save(transaction);
+            transactionRepository.save(transaction);
             logger.info("createTransaction processed correctly");
             updateProductQuantity(transaction);
             return 1;
         } catch (Exception e) {
-            logger.error("Error "+e.getMessage());
+            logger.error("Error " + e.getMessage());
             return 0;
         }
     }
 
-    public int updateProductQuantity(Transaction transaction){
+    public int updateProductQuantity(Transaction transaction) {
         try {
             logger.info("updateProductQuantity processed correctly");
-            transaction.getTransactionsProducts().stream().forEach((t)->{
-            	productRepository.updateQuantity(t.getId_product(),t.getQuantity());
+            transaction.getTransactionsProducts().stream().forEach((t) -> {
+                productRepository.updateQuantity(t.getId_product(), t.getQuantity());
             });
             return 1;
         } catch (Exception e) {
-            logger.error("Error "+e.getMessage());
+            logger.error("Error " + e.getMessage());
             return 0;
         }
     }
 
-    public int updateTransactionState(Long id, String stateOrder){
-        int result = transactionRepository.updateStateOrder(stateOrder,id);
+    public int updateTransactionState(Long id, String stateOrder) {
+        int result = transactionRepository.updateStateOrder(stateOrder, id);
         return result;
     }
 

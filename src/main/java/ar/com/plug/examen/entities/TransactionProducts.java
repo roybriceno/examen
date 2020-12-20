@@ -1,7 +1,6 @@
 package ar.com.plug.examen.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.Data;
 import lombok.ToString;
 
@@ -16,15 +15,15 @@ public class TransactionProducts {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(columnDefinition = "long")
-    private  Long value;
+    private Long value;
     @Column(columnDefinition = "long")
-    private  Long id_product;
+    private Long id_product;
     @Column(columnDefinition = "long")
-    private  Long quantity;
+    private Long quantity;
 
     public TransactionProducts(@JsonProperty("value") Long value,
-                                @JsonProperty("id_product") Long id_product,
-                                @JsonProperty("quantity")Long quantity) {
+                               @JsonProperty("id_product") Long id_product,
+                               @JsonProperty("quantity") Long quantity) {
 
         this.value = value;
         this.id_product = id_product;
