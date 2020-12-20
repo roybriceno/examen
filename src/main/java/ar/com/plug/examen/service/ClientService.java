@@ -1,6 +1,6 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.entities.Client;
+import ar.com.plug.examen.entities.ClientEntity;
 import ar.com.plug.examen.repositories.ClientRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,9 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public int addingClient(Client client) {
+    public int addingClient(ClientEntity clientEntity) {
         try {
-            clientRepository.save(client);
+            clientRepository.save(clientEntity);
             log.info("insertClient processed correctly");
             return 1;
         } catch (Exception e) {
@@ -30,9 +30,9 @@ public class ClientService {
         }
     }
 
-    public int updatingClient(Client client) {
+    public int updatingClient(ClientEntity clientEntity) {
         try {
-            clientRepository.save(client);
+            clientRepository.save(clientEntity);
             log.info("updateClient processed correctly");
             return 1;
         } catch (Exception e) {
@@ -52,8 +52,8 @@ public class ClientService {
         }
     }
 
-    public List<Client> getAllClient() {
-        List<Client> users = clientRepository.findAll();
+    public List<ClientEntity> getAllClient() {
+        List<ClientEntity> users = clientRepository.findAll();
         log.info("getAllClients processed correctly");
         return users;
     }

@@ -1,6 +1,6 @@
 package ar.com.plug.examen.repositories;
 
-import ar.com.plug.examen.entities.Product;
+import ar.com.plug.examen.entities.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
     // Operacion no logica
     @Transactional
@@ -16,5 +16,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "UPDATE products p join products tp on p.id = tp.id SET p.quantity= (tp.quantity - :quantity) WHERE p.id = :id", nativeQuery = true)
     int updateQuantity(@Param("id") Long id, @Param("quantity") Long quantity);
 
-    Product findByName(String name);
+    ProductEntity findByName(String name);
 }

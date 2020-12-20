@@ -1,6 +1,6 @@
 package ar.com.plug.examen.controllers;
 
-import ar.com.plug.examen.entities.Seller;
+import ar.com.plug.examen.entities.SellerEntity;
 import ar.com.plug.examen.service.SellerService;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +22,19 @@ public class SellerController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addingSeller(@RequestBody Seller seller) {
-        int response = sellerService.addSeller(seller);
+    public ResponseEntity<?> addingSeller(@RequestBody SellerEntity sellerEntity) {
+        int response = sellerService.addSeller(sellerEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @GetMapping
-    public List<Seller> showSellers() {
+    public List<SellerEntity> showSellers() {
         return sellerService.getAllSellers();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateSeller(@RequestBody Seller seller) {
-        int response = sellerService.updateSeller(seller);
+    public ResponseEntity<?> updateSeller(@RequestBody SellerEntity sellerEntity) {
+        int response = sellerService.updateSeller(sellerEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 

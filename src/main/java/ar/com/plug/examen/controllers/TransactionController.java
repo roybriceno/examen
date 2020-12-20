@@ -1,6 +1,6 @@
 package ar.com.plug.examen.controllers;
 
-import ar.com.plug.examen.entities.Transaction;
+import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.service.TransactionService;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +23,13 @@ public class TransactionController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addTransaction(@RequestBody Transaction transaction) {
-        int response = transactionService.addingTransaction(transaction);
+    public ResponseEntity<?> addTransaction(@RequestBody TransactionEntity transactionEntity) {
+        int response = transactionService.addingTransaction(transactionEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @GetMapping
-    public List<Transaction> showTransaction() {
+    public List<TransactionEntity> showTransaction() {
         return transactionService.getAllSellers();
     }
 

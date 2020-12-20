@@ -1,6 +1,6 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.entities.Seller;
+import ar.com.plug.examen.entities.SellerEntity;
 import ar.com.plug.examen.repositories.SellerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,9 @@ public class SellerService {
         this.sellerRepository = sellerRepository;
     }
 
-    public int addSeller(Seller seller) {
+    public int addSeller(SellerEntity sellerEntity) {
         try {
-            sellerRepository.save(seller);
+            sellerRepository.save(sellerEntity);
             log.info("insertSeller processed correctly");
             return 1;
         } catch (Exception e) {
@@ -30,9 +30,9 @@ public class SellerService {
         }
     }
 
-    public int updateSeller(Seller seller) {
+    public int updateSeller(SellerEntity sellerEntity) {
         try {
-            sellerRepository.save(seller);
+            sellerRepository.save(sellerEntity);
             log.info("updateSeller processed correctly");
             return 1;
         } catch (Exception e) {
@@ -52,9 +52,9 @@ public class SellerService {
         }
     }
 
-    public List<Seller> getAllSellers() {
-        List<Seller> seller = sellerRepository.findAll();
+    public List<SellerEntity> getAllSellers() {
+        List<SellerEntity> sellerEntity = sellerRepository.findAll();
         log.info("getAllSellers processed correctly");
-        return seller;
+        return sellerEntity;
     }
 }

@@ -1,6 +1,6 @@
 package ar.com.plug.examen.controllers;
 
-import ar.com.plug.examen.entities.Client;
+import ar.com.plug.examen.entities.ClientEntity;
 import ar.com.plug.examen.service.ClientService;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +22,19 @@ public class ClientController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addClient(@RequestBody Client client) {
-        int response = clientService.addingClient(client);
+    public ResponseEntity<?> addClient(@RequestBody ClientEntity clientEntity) {
+        int response = clientService.addingClient(clientEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @GetMapping
-    public List<Client> showProduct() {
+    public List<ClientEntity> showProduct() {
         return clientService.getAllClient();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateClient(@RequestBody Client client) {
-        int response = clientService.updatingClient(client);
+    public ResponseEntity<?> updateClient(@RequestBody ClientEntity clientEntity) {
+        int response = clientService.updatingClient(clientEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 

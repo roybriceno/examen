@@ -1,6 +1,6 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.entities.Transaction;
+import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.repositories.ProductRepository;
 import ar.com.plug.examen.repositories.TransactionRepository;
 import lombok.extern.log4j.Log4j2;
@@ -22,11 +22,11 @@ public class TransactionService {
         this.productRepository = productRepository;
     }
 
-    public int addingTransaction(Transaction transaction) {
+    public int addingTransaction(TransactionEntity transactionEntity) {
         try {
-            transactionRepository.save(transaction);
+            transactionRepository.save(transactionEntity);
             log.info("createTransaction processed correctly");
-            updateProductQuantity(transaction);
+            updateProductQuantity(transactionEntity);
             return 1;
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
@@ -34,10 +34,10 @@ public class TransactionService {
         }
     }
 
-    public int updateProductQuantity(Transaction transaction) {
+    public int updateProductQuantity(TransactionEntity transactionEntity) {
         try {
             log.info("updateProductQuantity processed correctly");
-            transaction.getTransactionsProducts().stream().forEach((t) -> {
+            transactionEntity.getTransactionsProducts().stream().forEach((t) -> {
                 productRepository.updateQuantity(t.getId_product(), t.getQuantity());
             });
             return 1;
@@ -52,9 +52,9 @@ public class TransactionService {
         return result;
     }
 
-    public List<Transaction> getAllSellers() {
-        List<Transaction> transaction = transactionRepository.findAll();
+    public List<TransactionEntity> getAllSellers() {
+        List<TransactionEntity> transactionEntity = transactionRepository.findAll();
         log.info("getAllSellers processed correctly");
-        return transaction;
+        return transactionEntity;
     }
 }
