@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SellerRepository extends JpaRepository<Seller, Long> {
 
-    public Seller findByName(String name);
+    Seller findByName(String name);
 }

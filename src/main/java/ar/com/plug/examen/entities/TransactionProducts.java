@@ -30,7 +30,7 @@ public class TransactionProducts {
         this.quantity = quantity;
 
     }
-
+    // Usar anotacion de lombok para no-arg
     public TransactionProducts() {
 
     }

@@ -36,7 +36,7 @@ public class Product {
         this.quantity = quantity;
         this.state = state;
     }
-
+    // Usar anotacion de lombok para no-arg
     public Product() {
 
     }

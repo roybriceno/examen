@@ -38,7 +38,7 @@ public class Transaction {
         this.idSeller = idSeller;
         this.transactionsProducts = transactionProducts;
     }
-
+    // Usar anotacion de lombok para no-arg
     public Transaction() {
 
     }

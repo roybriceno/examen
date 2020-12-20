@@ -1,4 +1,4 @@
-package ar.com.plug.examen.domain.aspects;
+package ar.com.plug.examen.aspects;
 
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -10,21 +10,16 @@ import org.springframework.stereotype.Component;
 @Log4j2
 @Aspect
 @Component
-
 public class ManageErrorAspect {
 
+    @Pointcut("execution(* ar.com.plug.examen..*(..))")
 
-    @Pointcut("execution(* ar.com.plug.examen.app.rest..*(..))")
-
-    public void methodsAround() {
-    }
+    public void methodsAround() {}
 
     @Around("methodsAround()")
     public Object logError(ProceedingJoinPoint joinPoint) throws Throwable {
-
         try {
             long start = System.currentTimeMillis();
-
             Object responsevalue = joinPoint.proceed();
             long executionTime = System.currentTimeMillis() - start;
             log.info("Se ejecutó correctamente: " + executionTime);

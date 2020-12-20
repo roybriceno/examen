@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/seller")
-
 public class SellerController {
 
     private final SellerService sellerService;

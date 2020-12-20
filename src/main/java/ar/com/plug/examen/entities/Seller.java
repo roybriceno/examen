@@ -36,7 +36,7 @@ public class Seller {
         this.phone = phone;
         this.state = state;
     }
-
+    // Usar anotacion de lombok para no-arg
     public Seller() {
 
     }

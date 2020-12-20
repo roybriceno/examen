@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ar.com.plug.examen</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>examen</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>examen</name>
     <description>Carrito de Compras</description>
 
     <properties>

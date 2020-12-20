@@ -14,7 +14,6 @@ import java.util.List;
 @RequestMapping(path = "/api/productos")
 public class ProductController {
 
-
     private final ProductService productService;
 
     @Autowired

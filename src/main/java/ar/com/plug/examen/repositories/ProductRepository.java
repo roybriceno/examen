@@ -10,10 +10,11 @@ import javax.transaction.Transactional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
+    // Operacion no logica
     @Transactional
     @Modifying
     @Query(value = "UPDATE products p join products tp on p.id = tp.id SET p.quantity= (tp.quantity - :quantity) WHERE p.id = :id", nativeQuery = true)
     int updateQuantity(@Param("id") Long id, @Param("quantity") Long quantity);
 
-    public Product findByName(String name);
+    Product findByName(String name);
 }

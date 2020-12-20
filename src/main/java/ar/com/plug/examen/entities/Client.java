@@ -41,6 +41,7 @@ public class Client {
         this.state = state;
     }
 
+    // Usar anotacion de lombok para no-arg
     public Client() {
 
     }

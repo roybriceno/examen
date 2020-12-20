@@ -3,19 +3,18 @@ package ar.com.plug.examen.service;
 import ar.com.plug.examen.entities.Transaction;
 import ar.com.plug.examen.repositories.ProductRepository;
 import ar.com.plug.examen.repositories.TransactionRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Log4j2
 @Service
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final ProductRepository productRepository;
-    Logger logger = LoggerFactory.getLogger(SellerService.class);
 
     @Autowired
     public TransactionService(TransactionRepository transactionRepository, ProductRepository productRepository) {
@@ -26,24 +25,24 @@ public class TransactionService {
     public int addingTransaction(Transaction transaction) {
         try {
             transactionRepository.save(transaction);
-            logger.info("createTransaction processed correctly");
+            log.info("createTransaction processed correctly");
             updateProductQuantity(transaction);
             return 1;
         } catch (Exception e) {
-            logger.error("Error " + e.getMessage());
+            log.error("Error " + e.getMessage());
             return 0;
         }
     }
 
     public int updateProductQuantity(Transaction transaction) {
         try {
-            logger.info("updateProductQuantity processed correctly");
+            log.info("updateProductQuantity processed correctly");
             transaction.getTransactionsProducts().stream().forEach((t) -> {
                 productRepository.updateQuantity(t.getId_product(), t.getQuantity());
             });
             return 1;
         } catch (Exception e) {
-            logger.error("Error " + e.getMessage());
+            log.error("Error " + e.getMessage());
             return 0;
         }
     }
@@ -55,7 +54,7 @@ public class TransactionService {
 
     public List<Transaction> getAllSellers() {
         List<Transaction> transaction = transactionRepository.findAll();
-        logger.info("getAllSellers processed correctly");
+        log.info("getAllSellers processed correctly");
         return transaction;
     }
 }
