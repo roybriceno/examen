@@ -13,17 +13,18 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @Entity
+@Table(name = "transaction")
 public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="state_order",columnDefinition = "varchar(255)")
     private String stateOrder;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="date_order",columnDefinition = "varchar(255)")
     private String dateOrder;
-    @Column(columnDefinition = "long")
+    @Column(name="id_client",columnDefinition = "long")
     private long idClient;
-    @Column(columnDefinition = "long")
+    @Column(name="id_seller",columnDefinition = "long")
     private long idSeller;
     @OneToMany(targetEntity = TransactionProductEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "cp_fk", referencedColumnName = "id")

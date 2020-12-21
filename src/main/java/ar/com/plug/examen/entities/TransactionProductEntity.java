@@ -12,14 +12,15 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Entity
+@Table(name = "transaction_product")
 public class TransactionProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(columnDefinition = "long")
+    @Column(name="value",columnDefinition = "long")
     private long value;
-    @Column(columnDefinition = "long")
+    @Column(name="id_product",columnDefinition = "long")
     private long idProduct;
-    @Column(columnDefinition = "long")
+    @Column(name="quantity",columnDefinition = "long")
     private long quantity;
 }
