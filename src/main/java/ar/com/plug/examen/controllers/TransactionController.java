@@ -35,7 +35,7 @@ public class TransactionController {
         return ResponseHelper.getHttpStatusResponse(response);
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "/{id}")
     public ResponseEntity<?> updateStateTransaction(@PathVariable("id") Long id) {
         int result = transactionService.updateTransactionState(id, "APPROVED");
         return ResponseHelper.getHttpStatusResponse(result);

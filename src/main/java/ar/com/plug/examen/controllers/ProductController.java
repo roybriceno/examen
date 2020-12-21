@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/productos",
+@RequestMapping(path = "/api/products",
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController {
@@ -41,7 +41,7 @@ public class ProductController {
         return ResponseHelper.getHttpStatusResponse(response);
     }
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> deletingProduct(@PathVariable("id") Long id) {
         int response = productService.deleteProduct(id);
         return ResponseHelper.getHttpStatusResponse(response);

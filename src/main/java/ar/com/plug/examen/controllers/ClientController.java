@@ -41,7 +41,7 @@ public class ClientController {
         return ResponseHelper.getHttpStatusResponse(response);
     }
 
-    @DeleteMapping
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> deletingClient(@PathVariable("id") Long id) {
         int response = clientService.deleteClient(id);
         return ResponseHelper.getHttpStatusResponse(response);

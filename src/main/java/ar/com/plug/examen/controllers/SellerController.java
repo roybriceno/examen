@@ -41,7 +41,7 @@ public class SellerController {
         return ResponseHelper.getHttpStatusResponse(response);
     }
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> deletingSeller(@PathVariable("id") Long id) {
         int response = sellerService.deleteSeller(id);
         return ResponseHelper.getHttpStatusResponse(response);
