@@ -12,20 +12,21 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Entity
+@Table(name = "client")
 public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="name", columnDefinition = "varchar(255)")
     private String name;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="last_name",columnDefinition = "varchar(255)")
     private String lastName;
-    @Column(columnDefinition = "integer")
+    @Column(name="document",columnDefinition = "integer")
     private long document;
-    @Column(columnDefinition = "integer")
+    @Column(name="phone",columnDefinition = "integer")
     private long phone;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="adress",columnDefinition = "varchar(255)")
     private String address;
-    @Column(columnDefinition = "boolean")
+    @Column(name="state",columnDefinition = "boolean")
     private boolean state;
 }

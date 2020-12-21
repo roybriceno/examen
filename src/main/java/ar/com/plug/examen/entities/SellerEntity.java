@@ -12,18 +12,19 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Entity
+@Table(name = "seller")
 public class SellerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="name",columnDefinition = "varchar(255)")
     private String name;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name="lastname",columnDefinition = "varchar(255)")
     private String lastname;
-    @Column(columnDefinition = "long")
+    @Column(name="document",columnDefinition = "long")
     private long document;
-    @Column(columnDefinition = "long")
+    @Column(name="phone",columnDefinition = "long")
     private long phone;
-    @Column(columnDefinition = "boolean")
+    @Column(name="state",columnDefinition = "boolean")
     private boolean state;
 }
