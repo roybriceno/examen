@@ -1,7 +1,7 @@
 package ar.com.plug.examen.controllers;
 
 import ar.com.plug.examen.entities.TransactionEntity;
-import ar.com.plug.examen.service.TransactionService;
+import ar.com.plug.examen.service.impl.TransactionService;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

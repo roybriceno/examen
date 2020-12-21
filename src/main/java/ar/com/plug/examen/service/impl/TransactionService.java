@@ -1,4 +1,4 @@
-package ar.com.plug.examen.service;
+package ar.com.plug.examen.service.impl;
 
 import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.repositories.ProductRepository;
@@ -38,7 +38,7 @@ public class TransactionService {
         try {
             log.info("updateProductQuantity processed correctly");
             transactionEntity.getTransactionsProducts().stream().forEach((t) -> {
-                productRepository.updateQuantity(t.getId_product(), t.getQuantity());
+                productRepository.updateQuantity(t.getIdProduct(), t.getQuantity());
             });
             return 1;
         } catch (Exception e) {

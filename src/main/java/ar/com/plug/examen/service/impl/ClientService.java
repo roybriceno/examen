@@ -1,4 +1,4 @@
-package ar.com.plug.examen.service;
+package ar.com.plug.examen.service.impl;
 
 import ar.com.plug.examen.entities.ClientEntity;
 import ar.com.plug.examen.repositories.ClientRepository;
