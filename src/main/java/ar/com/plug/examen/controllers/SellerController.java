@@ -1,6 +1,7 @@
 package ar.com.plug.examen.controllers;
 
 import ar.com.plug.examen.entities.SellerEntity;
+import ar.com.plug.examen.service.SellerService;
 import ar.com.plug.examen.service.impl.SellerServiceImpl;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,33 +15,33 @@ import java.util.List;
 @RequestMapping(path = "/api/seller")
 public class SellerController {
 
-    private final SellerServiceImpl sellerServiceImpl;
+    private final SellerService sellerService;
 
     @Autowired
-    public SellerController(SellerServiceImpl sellerServiceImpl) {
-        this.sellerServiceImpl = sellerServiceImpl;
+    public SellerController(SellerServiceImpl sellerService) {
+        this.sellerService = sellerService;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addingSeller(@RequestBody SellerEntity sellerEntity) {
-        int response = sellerServiceImpl.addSeller(sellerEntity);
+        int response = sellerService.addSeller(sellerEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @GetMapping
     public List<SellerEntity> showSellers() {
-        return sellerServiceImpl.getAllSellers();
+        return sellerService.getAllSellers();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateSeller(@RequestBody SellerEntity sellerEntity) {
-        int response = sellerServiceImpl.updateSeller(sellerEntity);
+        int response = sellerService.updateSeller(sellerEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @DeleteMapping(path = "{id}")
     public ResponseEntity<?> deletingSeller(@PathVariable("id") Long id) {
-        int response = sellerServiceImpl.deleteSeller(id);
+        int response = sellerService.deleteSeller(id);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 

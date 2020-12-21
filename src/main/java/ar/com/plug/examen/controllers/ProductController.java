@@ -1,6 +1,7 @@
 package ar.com.plug.examen.controllers;
 
 import ar.com.plug.examen.entities.ProductEntity;
+import ar.com.plug.examen.service.ProductService;
 import ar.com.plug.examen.service.impl.ProductServiceImpl;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,33 +15,33 @@ import java.util.List;
 @RequestMapping(path = "/api/productos")
 public class ProductController {
 
-    private final ProductServiceImpl productServiceImpl;
+    private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductServiceImpl productServiceImpl) {
-        this.productServiceImpl = productServiceImpl;
+    public ProductController(ProductServiceImpl productService) {
+        this.productService = productService;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addProduct(@RequestBody ProductEntity productEntity) {
-        int response = productServiceImpl.addingProduct(productEntity);
+        int response = productService.addingProduct(productEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @GetMapping
     public List<ProductEntity> showProduct() {
-        return productServiceImpl.getAllProducts();
+        return productService.getAllProducts();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateProduct(@RequestBody ProductEntity productEntity) {
-        int response = productServiceImpl.updatingProduct(productEntity);
+        int response = productService.updatingProduct(productEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @DeleteMapping(path = "{id}")
     public ResponseEntity<?> deletingProduct(@PathVariable("id") Long id) {
-        int response = productServiceImpl.deleteProduct(id);
+        int response = productService.deleteProduct(id);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 }

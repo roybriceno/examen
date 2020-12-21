@@ -1,6 +1,7 @@
 package ar.com.plug.examen.controllers;
 
 import ar.com.plug.examen.entities.ClientEntity;
+import ar.com.plug.examen.service.ClientService;
 import ar.com.plug.examen.service.impl.ClientServiceImpl;
 import ar.com.plug.examen.utils.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,33 +15,33 @@ import java.util.List;
 @RequestMapping(path = "/api/clients")
 public class ClientController {
 
-    private final ClientServiceImpl clientServiceImpl;
+    private final ClientService clientService;
 
     @Autowired
-    public ClientController(ClientServiceImpl clientServiceImpl) {
-        this.clientServiceImpl = clientServiceImpl;
+    public ClientController(ClientServiceImpl clientService) {
+        this.clientService = clientService;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addClient(@RequestBody ClientEntity clientEntity) {
-        int response = clientServiceImpl.addingClient(clientEntity);
+        int response = clientService.addingClient(clientEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @GetMapping
     public List<ClientEntity> showProduct() {
-        return clientServiceImpl.getAllClient();
+        return clientService.getAllClient();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateClient(@RequestBody ClientEntity clientEntity) {
-        int response = clientServiceImpl.updatingClient(clientEntity);
+        int response = clientService.updatingClient(clientEntity);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 
     @DeleteMapping(path = "{id}")
     public ResponseEntity<?> deletingClient(@PathVariable("id") Long id) {
-        int response = clientServiceImpl.deleteClient(id);
+        int response = clientService.deleteClient(id);
         return MessageResponse.getIntegerResponseEntity(response);
     }
 }
