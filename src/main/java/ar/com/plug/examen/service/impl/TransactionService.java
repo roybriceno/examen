@@ -3,6 +3,7 @@ package ar.com.plug.examen.service.impl;
 import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.repositories.ProductRepository;
 import ar.com.plug.examen.repositories.TransactionRepository;
+import ar.com.plug.examen.service.TransactionServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Log4j2
 @Service
-public class TransactionService {
+public class TransactionService implements TransactionServiceImpl {
 
     private final TransactionRepository transactionRepository;
     private final ProductRepository productRepository;
@@ -22,7 +23,8 @@ public class TransactionService {
         this.productRepository = productRepository;
     }
 
-    public int addingTransaction(TransactionEntity transactionEntity) {
+    @Override
+	public int addingTransaction(TransactionEntity transactionEntity) {
         try {
             transactionRepository.save(transactionEntity);
             log.info("createTransaction processed correctly");
@@ -34,7 +36,8 @@ public class TransactionService {
         }
     }
 
-    public int updateProductQuantity(TransactionEntity transactionEntity) {
+    @Override
+	public int updateProductQuantity(TransactionEntity transactionEntity) {
         try {
             log.info("updateProductQuantity processed correctly");
             transactionEntity.getTransactionsProducts().stream().forEach((t) -> {
@@ -47,12 +50,14 @@ public class TransactionService {
         }
     }
 
-    public int updateTransactionState(Long id, String stateOrder) {
+    @Override
+	public int updateTransactionState(Long id, String stateOrder) {
         int result = transactionRepository.updateStateOrder(stateOrder, id);
         return result;
     }
 
-    public List<TransactionEntity> getAllSellers() {
+    @Override
+	public List<TransactionEntity> getAllSellers() {
         List<TransactionEntity> transactionEntity = transactionRepository.findAll();
         log.info("getAllSellers processed correctly");
         return transactionEntity;
