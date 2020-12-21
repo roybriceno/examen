@@ -3,7 +3,7 @@ package ar.com.plug.examen.service.impl;
 import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.repositories.ProductRepository;
 import ar.com.plug.examen.repositories.TransactionRepository;
-import ar.com.plug.examen.service.TransactionServiceImpl;
+import ar.com.plug.examen.service.TransactionService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +12,13 @@ import java.util.List;
 
 @Log4j2
 @Service
-public class TransactionService implements TransactionServiceImpl {
+public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final ProductRepository productRepository;
 
     @Autowired
-    public TransactionService(TransactionRepository transactionRepository, ProductRepository productRepository) {
+    public TransactionServiceImpl(TransactionRepository transactionRepository, ProductRepository productRepository) {
         this.transactionRepository = transactionRepository;
         this.productRepository = productRepository;
     }

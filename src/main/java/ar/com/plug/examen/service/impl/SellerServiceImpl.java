@@ -2,7 +2,7 @@ package ar.com.plug.examen.service.impl;
 
 import ar.com.plug.examen.entities.SellerEntity;
 import ar.com.plug.examen.repositories.SellerRepository;
-import ar.com.plug.examen.service.SellerServiceImpl;
+import ar.com.plug.examen.service.SellerService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,12 @@ import java.util.List;
 
 @Log4j2
 @Service
-public class SellerService implements SellerServiceImpl {
+public class SellerServiceImpl implements SellerService {
 
     private final SellerRepository sellerRepository;
 
     @Autowired
-    public SellerService(SellerRepository sellerRepository) {
+    public SellerServiceImpl(SellerRepository sellerRepository) {
         this.sellerRepository = sellerRepository;
     }
 
