@@ -4,12 +4,8 @@ import ar.com.plug.examen.entities.*;
 import ar.com.plug.examen.models.*;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
-/*
-    Transform Models to Entities.
- */
 public final class ModelTransformer {
 
     private ModelTransformer(){
@@ -18,7 +14,7 @@ public final class ModelTransformer {
 
     public static ClientEntity toClientEntity(Client in) {
         return ClientEntity.builder()
-                .id(Objects.nonNull(in.getId()) ? in.getId() : null)
+                .id(in.getId())
                 .name(in.getName())
                 .lastName(in.getLastName())
                 .address(in.getAddress())
@@ -30,7 +26,7 @@ public final class ModelTransformer {
 
     public static ProductEntity toProductEntity(Product in) {
         return ProductEntity.builder()
-                .id(Objects.nonNull(in.getId()) ? in.getId() : null)
+                .id(in.getId())
                 .name(in.getName())
                 .description(in.getDescription())
                 .value(in.getValue())
@@ -41,7 +37,7 @@ public final class ModelTransformer {
 
     public static SellerEntity toSellerEntity(Seller in) {
         return SellerEntity.builder()
-                .id(Objects.nonNull(in.getId()) ? in.getId() : null)
+                .id(in.getId())
                 .name(in.getName())
                 .lastname(in.getLastname())
                 .document(in.getDocument())
@@ -52,7 +48,7 @@ public final class ModelTransformer {
 
     public static TransactionEntity toTransactionEntity(Transaction in) {
         return TransactionEntity.builder()
-                .id(Objects.nonNull(in.getId()) ? in.getId() : null)
+                .id(in.getId())
                 .stateOrder(in.getStateOrder())
                 .dateOrder(in.getDateOrder())
                 .idClient(in.getIdClient())
@@ -69,7 +65,7 @@ public final class ModelTransformer {
 
     public static TransactionProductEntity toTransactionProductEntity(TransactionProduct in) {
         return TransactionProductEntity.builder()
-                .id(Objects.nonNull(in.getId()) ? in.getId() : null)
+                .id(in.getId())
                 .value(in.getValue())
                 .idProduct(in.getIdProduct())
                 .quantity(in.getQuantity())

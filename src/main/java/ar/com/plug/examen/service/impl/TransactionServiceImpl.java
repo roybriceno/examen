@@ -46,9 +46,9 @@ public class TransactionServiceImpl implements TransactionService {
         TransactionEntity transactionEntity = ModelTransformer.toTransactionEntity(transaction);
         try {
             log.info("updateProductQuantity processed correctly");
-            transactionEntity.getTransactionsProducts().stream().forEach((t) -> {
-                productRepository.updateQuantity(t.getIdProduct(), t.getQuantity());
-            });
+            transactionEntity.getTransactionsProducts().forEach(t ->
+                productRepository.updateQuantity(t.getIdProduct(), t.getQuantity())
+            );
             return 1;
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
@@ -58,8 +58,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
 	public int updateTransactionState(Long id, String stateOrder) {
-        int result = transactionRepository.updateStateOrder(stateOrder, id);
-        return result;
+        return transactionRepository.updateStateOrder(stateOrder, id);
     }
 
     @Override

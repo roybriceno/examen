@@ -6,9 +6,6 @@ import ar.com.plug.examen.models.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
-    Transform Entities to Models
- */
 public final class EntityTransformer {
 
     private EntityTransformer(){
