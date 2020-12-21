@@ -10,15 +10,16 @@ import java.util.List;
 
 @Log4j2
 @Service
-public class ProductService {
+public class ProductServiceImpl implements ar.com.plug.examen.service.ProductService {
 
     private final ProductRepository productRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
+    public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
+    @Override
     public int addingProduct(ProductEntity productEntity) {
         try {
             productRepository.save(productEntity);
@@ -30,6 +31,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public int updatingProduct(ProductEntity productEntity) {
         try {
             productRepository.save(productEntity);
@@ -41,6 +43,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public int deleteProduct(Long id) {
         try {
             productRepository.deleteById(id);
@@ -52,6 +55,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public List<ProductEntity> getAllProducts() {
         List<ProductEntity> productEntity = productRepository.findAll();
         log.info("getAllProducts processed correctly");

@@ -2,6 +2,7 @@ package ar.com.plug.examen.service.impl;
 
 import ar.com.plug.examen.entities.ClientEntity;
 import ar.com.plug.examen.repositories.ClientRepository;
+import ar.com.plug.examen.service.ClientService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,12 +11,12 @@ import java.util.List;
 
 @Log4j2
 @Service
-public class ClientService {
+public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
 
     @Autowired
-    public ClientService(ClientRepository clientRepository) {
+    public ClientServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
