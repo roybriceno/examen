@@ -1,13 +1,17 @@
 package ar.com.plug.examen.service.impl;
 
 import ar.com.plug.examen.entities.ClientEntity;
+import ar.com.plug.examen.models.Client;
 import ar.com.plug.examen.repositories.ClientRepository;
 import ar.com.plug.examen.service.ClientService;
+import ar.com.plug.examen.transformers.EntityTransformer;
+import ar.com.plug.examen.transformers.ModelTransformer;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -20,7 +24,8 @@ public class ClientServiceImpl implements ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public int addingClient(ClientEntity clientEntity) {
+    public int addingClient(Client client) {
+        ClientEntity clientEntity = ModelTransformer.toClientEntity(client);
         try {
             clientRepository.save(clientEntity);
             log.info("insertClient processed correctly");
@@ -31,7 +36,8 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
-    public int updatingClient(ClientEntity clientEntity) {
+    public int updatingClient(Client client) {
+        ClientEntity clientEntity = ModelTransformer.toClientEntity(client);
         try {
             clientRepository.save(clientEntity);
             log.info("updateClient processed correctly");
@@ -53,9 +59,11 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
-    public List<ClientEntity> getAllClient() {
-        List<ClientEntity> users = clientRepository.findAll();
+    public List<Client> getAllClients() {
+        List<ClientEntity> clientEntities = clientRepository.findAll();
         log.info("getAllClients processed correctly");
-        return users;
+        return clientEntities.stream()
+                .map(EntityTransformer::toClient)
+                .collect(Collectors.toList());
     }
 }

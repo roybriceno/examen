@@ -1,12 +1,12 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.entities.ClientEntity;
+import ar.com.plug.examen.models.Client;
 
 import java.util.List;
 
 public interface ClientService {
-    int addingClient(ClientEntity clientEntity);
-    int updatingClient(ClientEntity clientEntity);
+    int addingClient(Client client);
+    int updatingClient(Client client);
     int deleteClient(Long id);
-    List<ClientEntity> getAllClient();
+    List<Client> getAllClients();
 }

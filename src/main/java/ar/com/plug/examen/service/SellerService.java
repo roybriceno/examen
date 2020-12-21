@@ -1,12 +1,12 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.entities.SellerEntity;
+import ar.com.plug.examen.models.Seller;
 
 import java.util.List;
 
 public interface SellerService {
-	int addSeller(SellerEntity sellerEntity);
-	int updateSeller(SellerEntity sellerEntity);
+	int addSeller(Seller seller);
+	int updateSeller(Seller seller);
 	int deleteSeller(Long id);
-	List<SellerEntity> getAllSellers();
+	List<Seller> getAllSellers();
 }
