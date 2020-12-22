@@ -1,3 +1,7 @@
+# TODO: Database example
+DROP SCHEMA IF EXISTS example;
+CREATE SCHEMA IF NOT EXISTS example;
+USE example;
 # TODO: Table Client
 DROP TABLE  IF EXISTS T_CLIENT;
 CREATE TABLE T_CLIENT (

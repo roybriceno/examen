@@ -25,6 +25,4 @@ public class ProductEntity {
     private long value;
     @Column(name="quantity",columnDefinition = "long")
     private long quantity;
-    @Column(name="state",columnDefinition = "boolean")
-    private boolean state;
 }

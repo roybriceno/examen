@@ -12,12 +12,13 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Entity
-@Table(name = "client")
+@Table(name = "T_CLIENT")
 public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "P_ID")
     private long id;
-    @Column(name="name", columnDefinition = "varchar(255)")
+    @Column(name="NAME")
     private String name;
     @Column(name="last_name",columnDefinition = "varchar(255)")
     private String lastName;
@@ -27,6 +28,4 @@ public class ClientEntity {
     private long phone;
     @Column(name="adress",columnDefinition = "varchar(255)")
     private String address;
-    @Column(name="state",columnDefinition = "boolean")
-    private boolean state;
 }
