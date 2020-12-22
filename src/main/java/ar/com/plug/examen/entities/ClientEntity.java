@@ -17,16 +17,14 @@ public class ClientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name="name", columnDefinition = "varchar(255)")
+    @Column(name="NAME")
     private String name;
-    @Column(name="last_name",columnDefinition = "varchar(255)")
+    @Column(name="LAST_NAME")
     private String lastName;
-    @Column(name="document",columnDefinition = "integer")
+    @Column(name="DOCUMENT")
     private long document;
-    @Column(name="phone",columnDefinition = "integer")
+    @Column(name="PHONE")
     private long phone;
-    @Column(name="adress",columnDefinition = "varchar(255)")
+    @Column(name="ADRESS")
     private String address;
-    @Column(name="state",columnDefinition = "boolean")
-    private boolean state;
 }

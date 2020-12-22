@@ -17,14 +17,12 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name="name",columnDefinition = "varchar(255)")
+    @Column(name="NAME")
     private String name;
-    @Column(name="description",columnDefinition = "varchar(255)")
+    @Column(name="DESCRIPTION")
     private String description;
-    @Column(name="value",columnDefinition = "long")
+    @Column(name="VALUE")
     private long value;
-    @Column(name="quantity",columnDefinition = "long")
+    @Column(name="QUANTITY")
     private long quantity;
-    @Column(name="state",columnDefinition = "boolean")
-    private boolean state;
 }
