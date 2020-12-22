@@ -78,12 +78,6 @@
 						<enabled>true</enabled>
 						<includeLayerTools>true</includeLayerTools>
 					</layers>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>

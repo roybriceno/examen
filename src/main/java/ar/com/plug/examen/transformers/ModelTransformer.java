@@ -20,7 +20,6 @@ public final class ModelTransformer {
                 .address(in.getAddress())
                 .document(in.getDocument())
                 .phone(in.getPhone())
-                .state(in.isState())
                 .build();
     }
 
@@ -31,7 +30,6 @@ public final class ModelTransformer {
                 .description(in.getDescription())
                 .value(in.getValue())
                 .quantity(in.getQuantity())
-                .state(in.isState())
                 .build();
     }
 
@@ -42,7 +40,6 @@ public final class ModelTransformer {
                 .lastname(in.getLastname())
                 .document(in.getDocument())
                 .phone(in.getPhone())
-                .state(in.isState())
                 .build();
     }
 

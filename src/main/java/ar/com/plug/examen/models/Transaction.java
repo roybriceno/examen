@@ -18,15 +18,15 @@ import java.util.List;
 @JsonRootName("transaction")
 public class Transaction {
     @JsonProperty("id")
-    private long id;
+    private Long id;
     @JsonProperty("state_order")
     private String stateOrder;
     @JsonProperty("date_order")
     private String dateOrder;
     @JsonProperty("id_client")
-    private long idClient;
+    private Long idClient;
     @JsonProperty("id_seller")
-    private long idSeller;
+    private Long idSeller;
     @JsonProperty("transaction_products")
     private List<TransactionProduct> transactionProducts;
 }

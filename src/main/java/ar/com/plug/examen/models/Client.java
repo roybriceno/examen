@@ -16,17 +16,15 @@ import lombok.*;
 @JsonRootName("client")
 public class Client {
     @JsonProperty("id")
-    private long id;
+    private Long id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("last_name")
     private String lastName;
     @JsonProperty("document")
-    private long document;
+    private Long document;
     @JsonProperty("phone")
-    private long phone;
+    private Long phone;
     @JsonProperty("address")
     private String address;
-    @JsonProperty("state")
-    private boolean state;
 }
