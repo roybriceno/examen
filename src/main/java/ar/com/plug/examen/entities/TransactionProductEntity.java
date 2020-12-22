@@ -12,15 +12,20 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Entity
-@Table(name = "transaction_product")
+@Table(name = "T_TRANSACTION_PRODUCT")
 public class TransactionProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "P_ID")
     private long id;
-    @Column(name="value",columnDefinition = "long")
+    @Column(name="VALUE")
     private long value;
-    @Column(name="id_product",columnDefinition = "long")
+    @Column(name="P_ID_PRODUCT")
     private long idProduct;
-    @Column(name="quantity",columnDefinition = "long")
+    @Column(name="QUANTITY")
     private long quantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "transactionentity_id")
+    private TransactionEntity transactionEntity;
 }

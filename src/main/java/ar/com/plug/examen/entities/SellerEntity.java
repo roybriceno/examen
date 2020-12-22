@@ -12,10 +12,11 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Entity
-@Table(name = "seller")
+@Table(name = "T_SELLER")
 public class SellerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "P_ID")
     private long id;
     @Column(name="NAME")
     private String name;

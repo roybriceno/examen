@@ -13,20 +13,21 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @Entity
-@Table(name = "transaction")
+@Table(name = "T_TRANSACTION")
 public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "P_ID")
     private long id;
-    @Column(name="state_order",columnDefinition = "varchar(255)")
+    @Column(name="STATE_ORDER")
     private String stateOrder;
-    @Column(name="date_order",columnDefinition = "varchar(255)")
+    @Column(name="DATE_ORDER")
     private String dateOrder;
-    @Column(name="id_client",columnDefinition = "long")
+    @Column(name="P_ID_CLIENT")
     private long idClient;
-    @Column(name="id_seller",columnDefinition = "long")
+    @Column(name="P_ID_SELLER")
     private long idSeller;
-    @OneToMany(targetEntity = TransactionProductEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "cp_fk", referencedColumnName = "id")
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transactionEntity")
     private List<TransactionProductEntity> transactionsProducts;
 }

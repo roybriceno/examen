@@ -26,6 +26,6 @@ public class ClientEntity {
     private long document;
     @Column(name="PHONE")
     private long phone;
-    @Column(name="ADRESS")
+    @Column(name="ADDRESS")
     private String address;
 }
