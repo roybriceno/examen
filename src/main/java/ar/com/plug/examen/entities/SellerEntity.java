@@ -17,14 +17,12 @@ public class SellerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name="name",columnDefinition = "varchar(255)")
+    @Column(name="NAME")
     private String name;
-    @Column(name="lastname",columnDefinition = "varchar(255)")
+    @Column(name="LAST_NAME")
     private String lastname;
-    @Column(name="document",columnDefinition = "long")
+    @Column(name="DOCUMENT")
     private long document;
-    @Column(name="phone",columnDefinition = "long")
+    @Column(name="PHONE")
     private long phone;
-    @Column(name="state",columnDefinition = "boolean")
-    private boolean state;
 }
