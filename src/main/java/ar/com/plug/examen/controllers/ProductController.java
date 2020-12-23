@@ -33,19 +33,19 @@ public class ProductController {
         this.productService = productServiceImpl;
     }
 
-    @GetMapping
+    @GetMapping("/product/get")
     public List<Product> showProduct() {
         return productService.getAllProducts();
     }
 
-    @PostMapping
+    @PostMapping("/product/post")
     public ResponseEntity<?> addProduct(@RequestBody Product product) {
     	ProductEntity aProduct = this.productService.addProduct(product);
     	return ResponseEntity.ok().body(aProduct);
             
     }
 
-    @PutMapping
+    @PutMapping("/product/put")
     public ResponseEntity<?> updateProduct(@RequestBody Product product) {
     	
     	try {

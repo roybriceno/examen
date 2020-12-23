@@ -30,7 +30,7 @@ public class TransactionController {
         this.transactionService = transactionServiceImpl;
     }
 
-    @GetMapping
+    @GetMapping("/transaction/get")
     public List<Transaction> showTransaction() {
         return transactionService.getAllSellers();
     }
@@ -40,10 +40,4 @@ public class TransactionController {
     	TransactionEntity aTransaction = this.transactionService.addTransaction(transaction);
     	return ResponseEntity.ok().body(aTransaction);
         }
-
-  /*  @GetMapping(value = "/transactions/{id}")
-   * public ResponseEntity<?> updateStateTransaction(@PathVariable("id") Long id) {
-   *	TransactionEntity result = transactionService.updateTransactionState(id, "APPROVED");
-   *     return ResponseEntity.getHttpStatusResponse(result);}
-    */
 }
