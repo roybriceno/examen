@@ -1,10 +1,19 @@
 package ar.com.plug.examen.models;
 
+/*
+ * Model Class
+ */
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import lombok.*;
+
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -27,4 +36,16 @@ public class Client {
     private Long phone;
     @JsonProperty("address")
     private String address;
+	
+    public Client(Long id, String name, String lastName, Long document, Long phone, String address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+		this.document = document;
+		this.phone = phone;
+		this.address = address;
+	}
+    
+    
 }

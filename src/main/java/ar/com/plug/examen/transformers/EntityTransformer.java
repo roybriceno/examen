@@ -1,11 +1,23 @@
 package ar.com.plug.examen.transformers;
 
-import ar.com.plug.examen.entities.*;
-import ar.com.plug.examen.models.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ar.com.plug.examen.entities.ClientEntity;
+import ar.com.plug.examen.entities.ProductEntity;
+import ar.com.plug.examen.entities.SellerEntity;
+import ar.com.plug.examen.entities.TransactionEntity;
+import ar.com.plug.examen.entities.TransactionProductEntity;
+import ar.com.plug.examen.models.Client;
+import ar.com.plug.examen.models.Product;
+import ar.com.plug.examen.models.Seller;
+import ar.com.plug.examen.models.Transaction;
+import ar.com.plug.examen.models.TransactionProduct;
+
+
+/*
+ * Transformers Class in charge of manage the data between the entities and model's
+ */
 public final class EntityTransformer {
 
     private EntityTransformer(){

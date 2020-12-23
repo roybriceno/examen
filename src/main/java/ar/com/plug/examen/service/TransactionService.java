@@ -1,12 +1,17 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.models.Transaction;
+/*
+ * Service Interface in charge of manage the business operations
+ */
 
 import java.util.List;
 
+import ar.com.plug.examen.entities.TransactionEntity;
+import ar.com.plug.examen.models.Transaction;
+
 public interface TransactionService {
-	int addingTransaction(Transaction transaction);
-	int updateProductQuantity(Transaction transaction);
-	int updateTransactionState(Long id, String stateOrder);
+	TransactionEntity addTransaction(Transaction transaction);
+	void updateProductQuantity(Transaction transaction);
+	void updateTransactionState(Long id, String stateOrder);
 	List<Transaction> getAllSellers();
 }

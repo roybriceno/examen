@@ -1,20 +1,26 @@
 package ar.com.plug.examen.controllers;
 
-import ar.com.plug.examen.helpers.ResponseHelper;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.models.Transaction;
 import ar.com.plug.examen.service.TransactionService;
 import ar.com.plug.examen.service.impl.TransactionServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+/**
+ * Class to manage the business logic of the app
+ */
 
 @RestController
-@RequestMapping(path = "/api/transactions",
-        consumes = MediaType.APPLICATION_JSON_VALUE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+@EnableAutoConfiguration
 public class TransactionController {
 
     private final TransactionService transactionService;
@@ -29,15 +35,15 @@ public class TransactionController {
         return transactionService.getAllSellers();
     }
 
-    @PostMapping
+    @PostMapping("/transaction/post")
     public ResponseEntity<?> addTransaction(@RequestBody Transaction transaction) {
-        int response = transactionService.addingTransaction(transaction);
-        return ResponseHelper.getHttpStatusResponse(response);
-    }
+    	TransactionEntity aTransaction = this.transactionService.addTransaction(transaction);
+    	return ResponseEntity.ok().body(aTransaction);
+        }
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<?> updateStateTransaction(@PathVariable("id") Long id) {
-        int result = transactionService.updateTransactionState(id, "APPROVED");
-        return ResponseHelper.getHttpStatusResponse(result);
-    }
+  /*  @GetMapping(value = "/transactions/{id}")
+   * public ResponseEntity<?> updateStateTransaction(@PathVariable("id") Long id) {
+   *	TransactionEntity result = transactionService.updateTransactionState(id, "APPROVED");
+   *     return ResponseEntity.getHttpStatusResponse(result);}
+    */
 }

@@ -1,5 +1,12 @@
 package ar.com.plug.examen.service.impl;
 
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import ar.com.plug.examen.entities.SellerEntity;
 import ar.com.plug.examen.models.Seller;
 import ar.com.plug.examen.repositories.SellerRepository;
@@ -7,11 +14,10 @@ import ar.com.plug.examen.service.SellerService;
 import ar.com.plug.examen.transformers.EntityTransformer;
 import ar.com.plug.examen.transformers.ModelTransformer;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+/*
+ * Service Class in charge of manage the business operations
+ */
 
 @Log4j2
 @Service
@@ -25,40 +31,45 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-	public int addSeller(Seller seller) {
+	public SellerEntity addSeller(Seller seller) {
         SellerEntity sellerEntity = ModelTransformer.toSellerEntity(seller);
         try {
-            sellerRepository.save(sellerEntity);
-            log.info("insertSeller processed correctly");
-            return 1;
+        	log.info("insertSeller processed correctly");
+        	return sellerRepository.save(sellerEntity);
+            
+            
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
+            return null;
         }
     }
 
     @Override
-	public int updateSeller(Seller seller) {
+	public SellerEntity updateSeller(Seller seller) {
         SellerEntity sellerEntity = ModelTransformer.toSellerEntity(seller);
         try {
-            sellerRepository.save(sellerEntity);
-            log.info("updateSeller processed correctly");
-            return 1;
+        	log.info("updateSeller processed correctly");
+        	return sellerRepository.save(sellerEntity);
+            
+            
         } catch (Exception e) {
-            log.error("Error " + e.getMessage());
-            return 0;
+        	log.error("Error " + e.getMessage());
+        	return null;
+        	
+            
         }
     }
 
     @Override
-	public int deleteSeller(Long id) {
+	public void deleteSeller(Long id) {
         try {
-            sellerRepository.deleteById(id);
-            log.info("deleteSeller processed correctly");
-            return 1;
+        	log.info("deleteSeller processed correctly");
+        	sellerRepository.deleteById(id);
+            
+            
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
+            
         }
     }
 

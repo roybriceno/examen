@@ -1,5 +1,15 @@
 package ar.com.plug.examen.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/*
+ * Service Class in charge of manage the business operations
+ */
+
 import ar.com.plug.examen.entities.ProductEntity;
 import ar.com.plug.examen.models.Product;
 import ar.com.plug.examen.repositories.ProductRepository;
@@ -7,11 +17,6 @@ import ar.com.plug.examen.service.ProductService;
 import ar.com.plug.examen.transformers.EntityTransformer;
 import ar.com.plug.examen.transformers.ModelTransformer;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -24,41 +29,40 @@ public class ProductServiceImpl implements ProductService {
         this.productRepository = productRepository;
     }
 
-    @Override
-    public int addingProduct(Product product) {
+    public ProductEntity addProduct(Product product) {
         ProductEntity productEntity = ModelTransformer.toProductEntity(product);
         try {
-            productRepository.save(productEntity);
-            log.info("insertProduct processed correctly");
-            return 1;
+        	log.info("insertSeller processed correctly");
+        	return productRepository.save(productEntity);
+            
+            
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
+            return null;
         }
-    }
+        }
 
     @Override
-    public int updatingProduct(Product product) {
+    public ProductEntity updateProduct(Product product) {
         ProductEntity productEntity = ModelTransformer.toProductEntity(product);
         try {
-            productRepository.save(productEntity);
             log.info("updateProduc processed correctly");
-            return 1;
+            return productRepository.save(productEntity);
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
+            return null;
         }
     }
 
     @Override
-    public int deleteProduct(Long id) {
+    public void deleteProduct(Long id) {
         try {
             productRepository.deleteById(id);
             log.info("deleteProduct processed correctly");
-            return 1;
+            
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
+            
         }
     }
 
@@ -70,4 +74,4 @@ public class ProductServiceImpl implements ProductService {
                 .map(EntityTransformer::toProduct)
                 .collect(Collectors.toList());
     }
-}
+	}

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "T_SELLER")
+
 public class SellerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

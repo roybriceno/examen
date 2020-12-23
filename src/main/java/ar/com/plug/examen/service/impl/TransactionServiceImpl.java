@@ -1,5 +1,15 @@
 package ar.com.plug.examen.service.impl;
 
+/*
+ * Service Class in charge of manage the business operations
+ */
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import ar.com.plug.examen.entities.TransactionEntity;
 import ar.com.plug.examen.models.Transaction;
 import ar.com.plug.examen.repositories.ProductRepository;
@@ -8,11 +18,6 @@ import ar.com.plug.examen.service.TransactionService;
 import ar.com.plug.examen.transformers.EntityTransformer;
 import ar.com.plug.examen.transformers.ModelTransformer;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -28,38 +33,41 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-	public int addingTransaction(Transaction transaction) {
+	public TransactionEntity addTransaction(Transaction transaction) {
         TransactionEntity transactionEntity = ModelTransformer.toTransactionEntity(transaction);
         try {
-            transactionRepository.save(transactionEntity);
-            log.info("createTransaction processed correctly");
+        	log.info("createTransaction processed correctly");
+        	transactionRepository.save(transactionEntity);
+            
             updateProductQuantity(transaction);
-            return 1;
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
         }
+		return null;
     }
 
     @Override
-	public int updateProductQuantity(Transaction transaction) {
+	public void updateProductQuantity(Transaction transaction) {
         TransactionEntity transactionEntity = ModelTransformer.toTransactionEntity(transaction);
         try {
             log.info("updateProductQuantity processed correctly");
             transactionEntity.getTransactionsProducts().forEach(t ->
                 productRepository.updateQuantity(t.getIdProduct(), t.getQuantity())
             );
-            return 1;
+           
         } catch (Exception e) {
             log.error("Error " + e.getMessage());
-            return 0;
+           
         }
     }
 
-    @Override
-	public int updateTransactionState(Long id, String stateOrder) {
-        return transactionRepository.updateStateOrder(stateOrder, id);
-    }
+/*
+ *     @Override
+ *
+*	public void updateTransactionState(Long id, String stateOrder) {
+ *       return transactionRepository.updateStateOrder(stateOrder, id);
+ *}
+ */   
 
     @Override
 	public List<Transaction> getAllSellers() {
@@ -69,4 +77,11 @@ public class TransactionServiceImpl implements TransactionService {
                 .map(EntityTransformer::toTransaction)
                 .collect(Collectors.toList());
     }
+
+	@Override
+	public void updateTransactionState(Long id, String stateOrder) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

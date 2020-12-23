@@ -1,12 +1,17 @@
 package ar.com.plug.examen.service;
 
-import ar.com.plug.examen.models.Product;
-
 import java.util.List;
 
+/*
+ * Service Class in charge of manage the business operations
+ */
+
+import ar.com.plug.examen.entities.ProductEntity;
+import ar.com.plug.examen.models.Product;
+
 public interface ProductService {
-    int addingProduct(Product product);
-    int updatingProduct(Product product);
-    int deleteProduct(Long id);
+	ProductEntity addProduct(Product product);
+    ProductEntity updateProduct(Product product);
+    void deleteProduct(Long id);
     List<Product> getAllProducts();
 }
